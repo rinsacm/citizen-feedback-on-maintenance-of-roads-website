@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.header-footer-div{
+  background-color: rgb(17, 17, 66);
+  color:rgb(207, 195, 195);
+}
