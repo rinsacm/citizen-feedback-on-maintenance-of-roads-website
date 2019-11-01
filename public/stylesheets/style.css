@@ -1,6 +1,12 @@
+html{
+  height: 100%;
+  
+}
 body {
   padding: 0px;
+  height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
 }
 
 a {
@@ -10,4 +16,13 @@ a {
 .header-footer-div{
   background-color: rgb(17, 17, 66);
   color:rgb(207, 195, 195);
+  
+}
+.complaint{
+  min-height: 300px;
+}
+
+.box1{
+  background-color: rgb(138, 130, 130);
+  margin:20px;
 }
