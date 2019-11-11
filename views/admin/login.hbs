@@ -1,8 +1,14 @@
-<div class="row m-3">
+<div class="row m-3 h-100">
     <div class="col-md-4 col-md-offset-4">
         <h1>Login</h1>
-       
-        <form action="/user/login" method="post" >
+       {{#if hasError}}
+            <div class="alert alert-danger">
+                {{# each messages}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+        <form action="/admin/login" method="post" >
             <div class="form-group">
                 <label for="email">E-Mail</label>
                 <input type="text" id="email" name="email" class="form-control">

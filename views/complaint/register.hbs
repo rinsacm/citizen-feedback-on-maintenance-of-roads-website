@@ -1,19 +1,19 @@
-<div class="row allign-content-center justify-content-center border-dark rounded m-3 d-flex w-100">
+<div class="row allign-content-center justify-content-center border-dark rounded m-3 d-flex w-100 ">
     <div class="col-md-4">
-        <form action="/register" enctype="multipart/form-data" method="post">
+        <form action="/register" enctype="multipart/form-data" method="post" >
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control">
+                <input type="text" id="name" name="name" class="form-control" required>
 
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" class="form-control">
+                <input type="text" id="email" name="email" class="form-control" required>
 
             </div>
             <div class="form-group">
                 <label for="category">Select Category</label>
-                <select name="category" >
+                <select name="category" required>
                     <option value="option1">option1</option>
                     <option value="option2">option2</option>
                     <option value="option3">option3</option>
@@ -23,23 +23,23 @@
             </div>
             <div class="form-group">
                 <label for="district">District</label>
-                <input type="text" id="district" name="district" class="form-control">
+                <input type="text" id="district" name="district" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="localbody">Local Body</label>
-                <input type="text" id="localbody" name="localbody" class="form-control">
+                <input type="text" id="localbody" name="localbody" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                <input type="text" id="location" name="location" class="form-control">
+                <input type="text" id="location" name="location" class="form-control" required>
             </div>
              <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" id="description" name="description" class="form-control">
+                <input type="text" id="description" name="description" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="image">Upload images</label>
-                <input type="file" id="image" name="image" class="form-control" name="myFiles" multiple>
+                <input type="file" id="image" name="image" class="form-control" name="myFiles" multiple required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
            

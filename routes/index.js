@@ -6,12 +6,13 @@ let db=require('../dbconfig/db-connect');
 let fs=require('fs');
 let ObjectID = require('mongodb').ObjectID;
 let assert = require('assert');
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', isAdminCreated,function(req, res, next) {
   if(!req.session.token)
   req.session.token=1000;
   
-  res.render('index', { title: 'Citizen feedback portal' });
+  res.render('index', { title: 'Citizen feedback portal' ,layout:'layout'});
 });
 router.get('/register', function(req, res, next) {
   res.render('complaint/register');
@@ -47,8 +48,8 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
   db.get().collection('complaints').count((err,res)=>{
     req.session.token=res+1000;
   })
-  token=req.session.token;
-
+  token=req.session.token+1;
+  console.log(token)
   db.get().collection('complaints').insertOne({
     "token":token,
     "name":name,
@@ -62,12 +63,12 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
     "status":"not checked"
 }, (err, result) => {
      console.log(result)
-    req.session.token++;
+    
      if (err) return console.log(err)
   
      console.log('saved to database')
-     res.redirect('/')
-    
+     
+    res.render('complaint/register-success',{tokenno:req.session.token})
       
   })
   
@@ -93,6 +94,7 @@ router.get('/photo/:token', function(req, res,next) {
     })
   })
 router.get('/complaint-status',function(req,res,next){
+  let messages=req.flash('error')
   res.render('complaint/complaintStatus')
   })
 router.post('/complaint-status',function(req,res,next){
@@ -100,9 +102,31 @@ router.post('/complaint-status',function(req,res,next){
   console.log(tokenNo+7)
   db.get().collection('complaints').findOne({"token":tokenNo},(err,complaint)=>{
     console.log(complaint)
-    res.render('complaint/complaintView',{complaint:complaint})
+    if(complaint)
+    res.render('complaint/complaintView',{complaint:complaint,layout:'layout'})
+    else
+    {
+      let messages="Invalid token";
+    res.redirect('/complaint-status')
+    }
   })
   
 })
+
+function isAdminCreated(req,res,next){
+  db.get().collection('admin').count((err,result)=>{
+    console.log("g")
+    console.log(result)
+    if(err)
+      console.log(err)
+    else if(result==0)
+    {
+
+      res.redirect('/admin/signup');
+    }
+    else
+      return next();
+  });
+}
 
 module.exports = router;
