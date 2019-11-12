@@ -15,7 +15,7 @@ router.get('/dashboard',isLoggedIn,function(req,res,next){
     
     req.session.totalComplaints=result;
     
-      res.render('admin/dashboard',{totalcomplaints:req.session.totalComplaints})
+      res.render('admin/dashboard',{title:'Admin Dashboard',totalcomplaints:req.session.totalComplaints})
       
    
   })
@@ -26,11 +26,11 @@ router.get('/dashboard',isLoggedIn,function(req,res,next){
 router.get('/login',function(req,res,next){
   let messages=req.flash('error');
  
-  res.render('admin/login',{messages:messages,hasError:messages.length>0})
+  res.render('admin/login',{title:'Admin Login',messages:messages,hasError:messages.length>0})
 })
 router.get('/signup',function(req,res,next){
   let messages=req.flash('error')
-  res.render('admin/signup',{messages:messages,hasError:messages.length>0})
+  res.render('admin/signup',{title:'Admin Signup',messages:messages,hasError:messages.length>0})
 })
 router.post('/login',[check('email','Invalid email').isEmail(),check('password','Invalid password.').isLength({min:5})],
 passport.authenticate('local-signin',
@@ -64,7 +64,7 @@ passport.authenticate('local-signup',
 
 router.get('/complaint-view-admin',isLoggedIn,function(req,res,next){
   dbconnect.get().collection('complaints').find().toArray(function(err,docs){
-    res.render('complaint/complaint-view-admin', {complaints:docs});
+    res.render('complaint/complaint-view-admin', {title:'Complaint-view-admin',complaints:docs});
   })
   
 })

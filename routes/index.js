@@ -6,16 +6,16 @@ let db=require('../dbconfig/db-connect');
 let fs=require('fs');
 let ObjectID = require('mongodb').ObjectID;
 let assert = require('assert');
-
+let nodemail=require('../nodemailer/mailer')
 /* GET home page. */
 router.get('/', isAdminCreated,function(req, res, next) {
-  if(!req.session.token)
-  req.session.token=1000;
   
+  
+  console.log(req.session.token)
   res.render('index', { title: 'Citizen feedback portal' ,layout:'layout'});
 });
 router.get('/register', function(req, res, next) {
-  res.render('complaint/register');
+  res.render('complaint/register',{title:'Register Complaint'});
 });
 
 router.post('/register',mult.upload.single('image'), (req, res, next) => {
@@ -45,11 +45,10 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
   let localBody=req.body.localbody;
   let location=req.body.location;
   let description=req.body.description;
-  db.get().collection('complaints').count((err,res)=>{
-    req.session.token=res+1000;
-  })
-  token=req.session.token+1;
-  console.log(token)
+  
+  
+  req.session.token=req.session.token+1;
+  token=req.session.token;
   db.get().collection('complaints').insertOne({
     "token":token,
     "name":name,
@@ -62,12 +61,25 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
     "image":finalImg,
     "status":"not checked"
 }, (err, result) => {
-     console.log(result)
-    
-     if (err) return console.log(err)
+  let mailOptions= {
+    from: 'rinsafathima09@gmail.com',
+    to: req.body.email,
+    subject: 'Complaint registered',
+    text: 'Your complaint on road is registered.Your token no. is '+token
+};   
   
+  
+  console.log(req.session.token)
+     if (err) return console.log(err)
+
      console.log('saved to database')
-     
+
+     nodemail.transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        return console.log(error.message);
+    }
+    console.log('success');
+});
     res.render('complaint/register-success',{tokenno:req.session.token})
       
   })
@@ -95,7 +107,7 @@ router.get('/photo/:token', function(req, res,next) {
   })
 router.get('/complaint-status',function(req,res,next){
   let messages=req.flash('error')
-  res.render('complaint/complaintStatus')
+  res.render('complaint/complaintStatus',{title:'Complaint status'})
   })
 router.post('/complaint-status',function(req,res,next){
   let tokenNo=parseInt(req.body.tokenno);
@@ -103,7 +115,7 @@ router.post('/complaint-status',function(req,res,next){
   db.get().collection('complaints').findOne({"token":tokenNo},(err,complaint)=>{
     console.log(complaint)
     if(complaint)
-    res.render('complaint/complaintView',{complaint:complaint,layout:'layout'})
+    res.render('complaint/complaintView',{title:'Complaint Status',complaint:complaint,layout:'layout'})
     else
     {
       let messages="Invalid token";
@@ -112,7 +124,12 @@ router.post('/complaint-status',function(req,res,next){
   })
   
 })
-
+router.get('/contact-us',function(req,res,next){
+  res.render('contactUs',{title:'Contact Us'});
+})
+router.get('/feedback-us',function(req,res,next){
+  res.render('feedback',{title:'General feedback'})
+})
 function isAdminCreated(req,res,next){
   db.get().collection('admin').count((err,result)=>{
     console.log("g")

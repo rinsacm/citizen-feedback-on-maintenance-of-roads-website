@@ -1,4 +1,4 @@
-<nav class="header-footer-div navbar navbar-expand-lg navbar-light  text-white m-0">
+<nav class="header-footer-div navbar navbar-expand-lg navbar-light   m-0">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,25 +6,30 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav container-fluid">
       <li class="nav-item active">
-        <a class="nav-link text-white " href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-warning" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link text-warning" href="/register">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/#about">About</a>
+        <a class="nav-link text-warning" href="/complaint-status">FeedbackStatus</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/user/profile">Complaint</a>
-      </li>
+      
       {{#if login}}
       <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/complaint-view-admin">Registered Complaints</a>
+        <a class="nav-link text-warning" href="/admin/complaint-view-admin">Registered Complaints</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/dashboard">Dashboard</a>
+        <a class="nav-link text-warning" href="/admin/dashboard">Dashboard</a>
       </li>
       {{/if}}
+      <li class="nav-item">
+        <a class="nav-link text-warning" href="/contact-us">ContactUs</a>
+      </li>
       <div class="container-fluid d-flex justify-content-end">
         <li class=" nav-item dropdown ">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
         </a>
         {{#if login}}
