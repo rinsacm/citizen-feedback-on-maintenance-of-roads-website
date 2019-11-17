@@ -128,7 +128,17 @@ router.get('/contact-us',function(req,res,next){
   res.render('contactUs',{title:'Contact Us'});
 })
 router.get('/feedback-us',function(req,res,next){
-  res.render('feedback',{title:'General feedback'})
+  var successMsgs = req.flash('success')[0];
+  res.render('feedback',{title:'General feedback',successMsgs: successMsgs, noMessage: !successMsgs})
+})
+router.post('/feedback-us',function(req,res,next){
+  console.log("hi")
+  
+  db.get().collection('feedbacks').insertOne({name:req.body.name,email:req.body.email,subject:req.body.subject,message:req.body.message},(err,result)=>{
+    console.log("feedback send");
+    req.flash('success', 'Feedback sent!');
+    res.redirect('/feedback-us')
+  })
 })
 function isAdminCreated(req,res,next){
   db.get().collection('admin').count((err,result)=>{

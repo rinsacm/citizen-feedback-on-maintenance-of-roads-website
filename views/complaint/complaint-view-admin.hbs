@@ -6,7 +6,7 @@
             <button type="submit" class="p-1"><i class="fa fa-search"></i></button>
         </form>
       </div>
-{{#if complaints}}
+  {{#if complaints}}
 
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -27,25 +27,25 @@
                 <div class="complaint row w-100 justify-content-center allign-content-center d-flex p-2 h-100">
                     <div class="col-md-8">
                         <div class="row w-100">
-                            <label class="w-50">Token no.</label>:  <label >{{this.token}}</label>
+                            <label class="col-md-6">Token no.</label>  <label class="col-md-6">:{{this.token}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">Name</label>:  <label>{{this.name}}</label>
+                            <label class="col-md-6">Name</label><label class="col-md-6">:{{this.name}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">Complaint Category</label>:  <label>{{this.category}}</label>
+                            <label class="col-md-6">Complaint Category</label> <label class="col-md-6">:{{this.category}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">District</label>:  <label>{{this.district}}</label>
+                            <label class="col-md-6">District</label><label class="col-md-6">:{{this.district}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">Complaint Description</label>:  <label>{{this.description}}</label>
+                            <label class="col-md-6">Complaint Description</label> <label class="col-md-6">:{{this.description}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">Uploaded image</label>:  <a href="/photo/{{this.token}}" >View</a>
+                            <label class="col-md-6">Uploaded image</label class="col-md-6"><a href="/photo/{{this.token}}" >:View</a>
                         </div>
                         <div class="row w-100">
-                            <label class="w-50">change status</label>
+                            <label class="col-md-6">change status</label>
                             <form action="/admin/upload-progress/{{this.token}}" method="post">
                                 <select name="progress" >
                                     <option value="rejected">Rejected</option>

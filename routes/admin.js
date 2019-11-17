@@ -81,6 +81,11 @@ router.post('/complaint-view-admin',isLoggedIn,function(req,res,next){
   })
   
 })
+router.get('/feedbacks-admin',function(req,res,next){
+  dbconnect.get().collection('feedbacks').find().toArray(function(err,docs){
+    res.render('admin/feedbacks',{title:"Feedbacks",feedbacks:docs})
+  })
+})
 router.post('/upload-progress/:token',isLoggedIn,function(req,res,next){
   let status=req.body.progress;
   let token=parseInt(req.params.token);

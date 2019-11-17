@@ -1,1 +1,38 @@
-<div class="h-100"></div>
+<div class="row w-100 justify-content-center align-content-center d-flex"><div class="justify-content-center col-md-5 h-100">
+    <!-- Default form contact -->
+<form class="text-center border border-light p-5" action="/feedback-us" method="post">
+    <div class="alert alert-success {{#if noMessage}}invisible{{/if}}" role="alert">
+        {{successMsgs}}
+    </div>
+    <p class="h4 mb-4">Feedback Us</p>
+
+    <!-- Name --> 
+    <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="name">
+
+    <!-- Email -->
+    <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+
+    <!-- Subject -->
+    <label>Subject</label>
+    <select class="browser-default custom-select mb-4" name="subject"> 
+        <option value="" disabled>Choose option</option>
+        <option value="Feedback" selected>Feedback</option>
+        <option value="Bug report">Report a bug</option>
+        <option value="Feature request">Feature request</option>
+        
+    </select>
+
+    <!-- Message -->
+    <div class="form-group">
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message" name="message"></textarea>
+    </div>
+
+    
+
+    <!-- Send button -->
+    <button type="submit" class="btn-hover color-5">Send</button>
+
+</form>
+<!-- Default form contact -->
+</div>
+</div>

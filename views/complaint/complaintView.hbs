@@ -4,25 +4,25 @@
       <div class="complaint row w-100 justify-content-center allign-content-center d-flex p-2 h-100">
         <div class="col-md-8">
             <div class="row w-100">
-                <label class="w-50">Token no.</label>:  <label >{{complaint.token}}</label>
+                <label class="col-md-6">Token no.</label> <label class="col-md-6">:{{complaint.token}}</label>
             </div>
             <div class="row w-100">
-                <label class="w-50">Name</label>:  <label>{{complaint.name}}</label>
+                <label class="col-md-6">Name</label><label class="col-md-6">:{{complaint.name}}</label>
             </div>
             <div class="row w-100">
-                <label class="w-50">Complaint Category</label>:  <label>{{complaint.category}}</label>
+                <label class="col-md-6">Complaint Category</label ><label class="col-md-6">:{{complaint.category}}</label>
             </div>
             <div class="row w-100">
-                <label class="w-50">District</label>:  <label>{{complaint.district}}</label>
+                <label class="col-md-6">District</label><label class="col-md-6">:{{complaint.district}}</label>
             </div>
             <div class="row w-100">
-                <label class="w-50">Complaint Description</label>:  <label>{{complaint.description}}</label>
+                <label class="col-md-6">Complaint Description</label><label class="col-md-6">{{complaint.description}}</label>
             </div>
             <div class="row w-100">
-                <label class="w-50">Uploaded image</label>:  <a href="/photo/{{complaint.token}}" >View</a>
+                <label class="col-md-6">Uploaded image</label><a href="/photo/{{complaint.token}}" >:View</a>
             </div>
             <div class="row w-100">
-                <label class="w-50">Status</label>:  <label>{{complaint.status}}</label>
+                <label class="col-md-6">Status</label><label class="col-md-6">:{{complaint.status}}</label>
             </div>
         </div>
     </div>

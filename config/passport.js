@@ -29,7 +29,7 @@ passport.use('local-signup',new LocalStrategy({usernameField:'email',passwordFie
     function(req,email, password, done) {
 
 
-
+        let name=req.body.name;
         let errors=validationResult(req).array()
 
         if(errors.length>0)
