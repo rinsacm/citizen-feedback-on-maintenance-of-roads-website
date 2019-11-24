@@ -1,13 +1,18 @@
 {
   "name": "citizen-feedback-roads",
   "version": "0.0.0",
-  "private": true,
+  "main":"bin/www",
   "scripts": {
     
-    "main":"/bin/www",
-    "start": "node ./bin/www"
+    
+    "start": "node ./bin/www",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
   },
   "dependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5",
+    "object-assign":"4.1.0",
     "assert": "^2.0.0",
     "bcrypt-nodejs": "0.0.3",
     "connect-flash": "^0.1.1",
@@ -28,5 +33,13 @@
     "nodemailer": "^6.3.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website.git"
   }
 }
