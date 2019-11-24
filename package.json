@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     
-    "main":"bin/www",
+    "main":"./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
