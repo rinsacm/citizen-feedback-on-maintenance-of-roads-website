@@ -7,7 +7,7 @@ module.exports.transporter = nodemailer.createTransport({
     requireTLS: true,
     auth: {
         user: 'cffmrfeedback@gmail.com',
-        pass: 'pass'
+        pass: 'designproject'
     }
 });
 

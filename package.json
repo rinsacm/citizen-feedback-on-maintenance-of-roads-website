@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm install --all",
-    "main":"app.js",
+    
+    "main":"bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
