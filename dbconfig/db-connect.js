@@ -7,7 +7,7 @@ let state={
 module.exports.connect=function (done) {
     if(state.db)return done();
 // conection url
-    const url='mongodb://localhost:27017';
+    const url='mongodb+srv://optimist:optimist@rin123-vtkzy.mongodb.net/test?retryWrites=true&w=majority'||'mongodb://localhost:27017';
 
     //database name
 
