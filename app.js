@@ -44,6 +44,9 @@ app.use(function (req,res,next) {
   req.session.compComplaints;
   req.session.token;
   res.locals.session=req.session;
+  dbconnect.get().collection('complaints').count((err,count)=>{
+    req.session.token=1000+count;
+  })
   next();
 })
 
@@ -66,9 +69,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   console.log(req.session.token)
-  dbconnect.get().collection('complaints').count((err,count)=>{
-    req.session.token=1000+count;
-  })
+  
   // render the error page
   res.status(err.status || 500);
   res.render('error');

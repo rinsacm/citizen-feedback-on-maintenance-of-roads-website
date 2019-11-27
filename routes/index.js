@@ -80,8 +80,9 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
         return console.log(error.message);
     }
     console.log('success');
+    res.render('complaint/register-success',{tokenno:token})
 });
-    res.render('complaint/register-success',{tokenno:req.session.token})
+    
       
   })
   
