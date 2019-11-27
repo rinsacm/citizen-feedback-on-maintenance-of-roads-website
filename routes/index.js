@@ -62,7 +62,7 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
     "status":"not checked"
 }, (err, result) => {
   let mailOptions= {
-    from: 'rinsafathima09@gmail.com',
+    from: 'cffmrfeedback@gmail.com',
     to: req.body.email,
     subject: 'Complaint registered',
     text: 'Your complaint on road is registered.Your token no. is '+token
@@ -70,6 +70,7 @@ router.post('/register',mult.upload.single('image'), (req, res, next) => {
   
   
   console.log(req.session.token)
+  
      if (err) return console.log(err)
 
      console.log('saved to database')

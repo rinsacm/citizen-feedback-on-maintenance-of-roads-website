@@ -3,7 +3,7 @@
 <div class="accordion " id="accordionExample">
   <div class="card">
       {{#each feedbacks}}
-    <div class="card-header" id="headingOne">
+    <div class="card-header " id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
          {{this.subject}}
@@ -12,23 +12,23 @@
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
+      <div class="card-body ">
         
             <div class="card m-3">
             <div class="card-body">
                 <div class="complaint row w-100 justify-content-center allign-content-center d-flex p-2 ">
                     <div class="col-md-8">
                         <div class="row w-100">
-                            <label class="col-md-6">Name</label>  <label class="col-md-6">:{{this.name}}</label>
+                            <label class="col-md-6 col-sm-6">Name</label>  <label class="col-md-6 col-sm-6">:{{this.name}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Email</label><label class="col-md-6">:{{this.email}}</label>
+                            <label class="col-md-6 col-sm-6">Email</label><label class="col-md-6 col-sm-6">:{{this.email}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Subject</label> <label class="col-md-6">:{{this.subject}}</label>
+                            <label class="col-md-6 col-sm-6">Subject</label> <label class="col-md-6 col-sm-6">:{{this.subject}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Message</label><label class="col-md-6">:{{this.message}}</label>
+                            <label class="col-md-6 col-sm-6">Message</label><label class="col-md-6 col-sm-6">:{{this.message}}</label>
                         </div>
                         
                     </div>

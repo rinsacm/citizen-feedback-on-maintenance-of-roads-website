@@ -1,4 +1,4 @@
-<div class="m-2">
+<div class="m-2 col-sm-12">
         <form class="form-inline md-form form-sm mt-0" method="POST" action="/admin/complaint-view-admin">
           
           <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Enter token no."
@@ -11,7 +11,7 @@
 <div class="accordion" id="accordionExample">
   <div class="card">
       {{#each complaints}}
-    <div class="card-header" id="headingOne">
+    <div class="card-header col-s-12" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Token no. : {{this.token}}
@@ -20,32 +20,32 @@
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
+      <div class="card-body col-sm-12">
         
             <div class="card m-3">
             <div class="card-body">
                 <div class="complaint row w-100 justify-content-center allign-content-center d-flex p-2 h-100">
                     <div class="col-md-8">
                         <div class="row w-100">
-                            <label class="col-md-6">Token no.</label>  <label class="col-md-6">:{{this.token}}</label>
+                            <label class="col-md-6 col-sm-6">Token no.</label>  <label class="col-md-6 col-sm-6">:{{this.token}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Name</label><label class="col-md-6">:{{this.name}}</label>
+                            <label class="col-md-6 col-sm-6">Name</label><label class="col-md-6 col-sm-6">:{{this.name}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Complaint Category</label> <label class="col-md-6">:{{this.category}}</label>
+                            <label class="col-md-6 col-sm-6">Complaint Category</label> <label class="col-md-6 col-sm-6">:{{this.category}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">District</label><label class="col-md-6">:{{this.district}}</label>
+                            <label class="col-md-6 col-sm-6">District</label><label class="col-md-6 col-sm-6">:{{this.district}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Complaint Description</label> <label class="col-md-6">:{{this.description}}</label>
+                            <label class="col-md-6 col-sm-6">Complaint Description</label> <label class="col-md-6 col-sm-6">:{{this.description}}</label>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">Uploaded image</label class="col-md-6"><a href="/photo/{{this.token}}" >:View</a>
+                            <label class="col-md-6 col-sm-6">Uploaded image</label class="col-md-6 col-sm-6"><a href="/photo/{{this.token}}" >:View</a>
                         </div>
                         <div class="row w-100">
-                            <label class="col-md-6">change status</label>
+                            <label class="col-md-6 col-sm-6">change status</label>
                             <form action="/admin/upload-progress/{{this.token}}" method="post">
                                 <select name="progress" >
                                     <option value="rejected">Rejected</option>
