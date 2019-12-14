@@ -9,14 +9,11 @@
   "dependencies": {
     "assert": "^2.0.0",
     "bcrypt-nodejs": "0.0.3",
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.1.1",
     "cookie-parser": "^1.4.4",
     "csurf": "^1.10.0",
     "debug": "~2.6.9",
-    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
@@ -36,20 +33,5 @@
   "engine": {
     "node": "*",
     "npm": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website/issues"
-  },
-  "homepage": "https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website#readme",
-  "directories": {
-    "test": "tests"
-  },
-  "devDependencies": {},
-  "author": "",
-  "license": "ISC",
-  "description": ""
-}
+  }
+  
