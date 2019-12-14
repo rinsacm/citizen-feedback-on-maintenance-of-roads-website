@@ -40,4 +40,15 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website.git"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website/issues"
+  },
+  "homepage": "https://github.com/rinsacm/citizen-feedback-on-maintenance-of-roads-website#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "author": "",
+  "description": ""
+}
