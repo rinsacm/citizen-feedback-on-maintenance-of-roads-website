@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -31,5 +32,5 @@ jobs:
       with:
         app-name: 'citizen-feedback-on-management-of-roads'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e5259e6165a749408b4d6416b4d21c35 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b8e5854032004cbdb1d42bfc8fc42737 }}
         package: .
